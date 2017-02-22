@@ -1,0 +1,88 @@
+<script>
+    $('#loginOut').click(function(){
+        
+        firebase.auth().signOut().then(function() {
+          window.location.href = '#/customers';
+            console.log('successfully logged out');
+            
+            //console.log();
+        }, function(error) {
+          // An error happened.
+        })
+        
+        
+    });
+</script>
+
+<div class="row border-bottom white-bg">
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <i class="fa fa-reorder"></i>
+            </button>
+            <a href="#" class="navbar-brand">Inspinia</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a ui-sref="dashboards_top.dashboard" href="#" > Dashboard </a>
+
+                </li>
+                <li class="active">
+                    <a ui-sref="dashboards_top.profiles" href="#" > Profile </a>
+
+                </li>
+                <li class="active">
+                    <a ui-sref="dashboards_top.documents" href="#" > Documents </a>
+
+                </li>
+                <!--<li uib-dropdown>
+                    <a href uib-dropdown-toggle> Menu item <span class="caret"></span></a>
+                    <ul role="menu" uib-dropdown-menu>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                    </ul>
+                </li>
+                <li uib-dropdown>
+                    <a href uib-dropdown-toggle> Menu item <span class="caret"></span></a>
+                    <ul role="menu" uib-dropdown-menu>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                    </ul>
+                </li>
+                <li uib-dropdown>
+                    <a  href uib-dropdown-toggle> Menu item <span class="caret"></span></a>
+                    <ul role="menu" uib-dropdown-menu>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                    </ul>
+                </li>
+                <li uib-dropdown>
+                    <a href uib-dropdown-toggle> Menu item <span class="caret"></span></a>
+                    <ul role="menu" uib-dropdown-menu>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                    </ul>
+                </li>-->
+
+
+
+            </ul>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a id="loginOut">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

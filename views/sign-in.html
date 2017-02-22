@@ -1,0 +1,179 @@
+<script>
+    firebase.auth().onAuthStateChanged(function(user){
+                
+                if(user){
+                    //console.log(user.uid, user.email);
+                    //$window.location.href = '/dashboard';
+                }else {
+                    console.log('not signed in');
+                }
+
+            })
+</script>
+<style>
+    .navbar-default .nav li a {
+        color: #676a6c !important;
+    }
+</style>
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="welcome">BZo</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a class="page-scroll" page-scroll href="#page-top">Home{{mytest}}</a></li>
+                    <li><a class="page-scroll" page-scroll href="#features">BZo Barber</a></li>
+                    <li><a class="page-scroll" page-scroll href="#team">Get a Cut</a></li>
+                    <li><a class="page-scroll" page-scroll href="#testimonials">Our Partners</a></li>
+                    <li><a ui-sref="login">Login</a></li>
+                    <li><a ui-sref="register">Join</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<section  class="container features">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <br /><br />
+            <h1>Sign in</h1>
+            <br /><br /><br /><br /><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 text-center wow fadeInLeft">
+            <div>
+                <i class="fa fa-bookmark features-icon"></i>
+                <h2>BZo Barber</h2>
+                <p>Login to the accounts console and manage your performance</p>
+                <a ui-sref="agents"><button type="button" class="btn btn-block btn-outline btn-primary">BZo Barber login</button></a>
+            </div>
+        </div>
+        <div class="col-md-2 text-center wow fadeInRight">
+            <div>
+                
+                <h2>&nbsp; &nbsp;</h2>
+                <p>&nbsp; &nbsp;</p>
+            </div>
+        </div>
+        <div class="col-md-5 text-center wow fadeInRight">
+            <div>
+                <i class="fa fa-bookmark features-icon"></i>
+                <h2>BZo Customer</h2>
+                <p>Console for BZo customers</p>
+                <a ui-sref="customers"><button type="button" class="btn btn-block btn-outline btn-primary">BZo Customer login</button></a>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<section id="contact" class="gray-section contact">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Contact Us</h1>
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+            </div>
+        </div>
+        <div class="row m-b-lg">
+            <div class="col-lg-3 col-lg-offset-3">
+                <address>
+                    <strong><span class="navy">Company name, Inc.</span></strong><br/>
+                    795 Folsom Ave, Suite 600<br/>
+                    San Francisco, CA 94107<br/>
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+            </div>
+            <div class="col-lg-4">
+                <p class="text-color">
+                    Consectetur adipisicing elit. Aut eaque, totam corporis laboriosam veritatis quis ad perspiciatis, totam corporis laboriosam veritatis, consectetur adipisicing elit quos non quis ad perspiciatis, totam corporis ea,
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <a href="mailto:test@email.com" class="btn btn-primary">Send us mail</a>
+                <p class="m-t-sm">
+                    Or follow us on social platform
+                </p>
+                <ul class="list-inline social-icon">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p><strong>&copy; 2015 Company Name</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Local script for menu handle -->
+<!-- It can be also directive -->
+
+<script>
+    $(document).ready(function () {
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function(event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+            if($('body').hasClass('body-small')) {
+                $('#navbar').collapse('toggle');
+            }
+        });
+
+        // Activate WOW.js plugin for animation on scrol
+        new WOW().init();
+    });
+
+    var cbpAnimatedHeader = (function() {
+        var docElem = document.documentElement,
+                header = document.querySelector( '.navbar-default' ),
+                didScroll = false,
+                changeHeaderOn = 200;
+        function init() {
+            window.addEventListener( 'scroll', function( event ) {
+                if( !didScroll ) {
+                    didScroll = true;
+                    setTimeout( scrollPage, 250 );
+                }
+            }, false );
+        }
+        function scrollPage() {
+            var sy = scrollY();
+            if ( sy >= changeHeaderOn ) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+        init();
+
+    })();
+</script>
